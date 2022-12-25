@@ -1,0 +1,7 @@
+{{< include index.qmd >}}
+
+{{< include publications.qmd >}}
+
+---
+title: "Curriculum Vitae"
+---

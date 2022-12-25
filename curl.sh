@@ -1,0 +1,1 @@
+curl -H 'Cache-Control: no-cache' -L https://docs.google.com/spreadsheets/export\?id\=1nBUxQpYqcvIe_fIGOCgbihjCughgC2yYMelOKoQaj0M\&exportFormat\=xlsx --output cv.xlsx

@@ -1,0 +1,40 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "saqr"
+  description: "Personal website of Mohammed Saqr"
+  site-url: https://loxavia.github.io
+  repo-url: https://github.com/loxavia/loxavia.github.io
+  google-analytics: "G-251HR7GW52"
+  open-graph: true
+  favicon: favicon.png
+  twitter-card: 
+    creator: "@mohsaqr"
+    site: "@mohsaqr"
+    card-style: "summary_large_image"
+  navbar:
+    background: dark
+    foreground: light
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+      - href: publications.qmd
+      # - href: blog.qmd
+  page-footer:
+    right: 
+      - text: "<span style='text-sm'>Based on <a target='_blank' href='https://github.com/ddimmery/quarto-website'>ddimmery</a></span>"
+
+format:
+  html:
+    theme: solar
+    css: styles.css
+    toc: true
+    toc-depth: 4
+    toc-title: "Contents"
+    html-math-method: katex
+    include-in-header:
+      - includes.html
+    highlight-style: tango
