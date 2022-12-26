@@ -15,12 +15,13 @@ website:
     site: "@mohsaqr"
     card-style: "summary_large_image"
   navbar:
-    background: dark
+    background: primary
     foreground: light
     left:
       - href: index.qmd
         text: Home
-      - href: about.qmd
+      - href: interests.qmd
+      - href: cv.qmd
       - href: publications.qmd
       # - href: blog.qmd
   page-footer:
@@ -29,7 +30,7 @@ website:
 
 format:
   html:
-    theme: solar
+    theme: flatly
     css: styles.css
     toc: true
     toc-depth: 4

@@ -1,7 +1,252 @@
-{{< include index.qmd >}}
-
-{{< include publications.qmd >}}
 
 ---
 title: "Curriculum Vitae"
 ---
+
+
+
+## Education
+
+ 
+
+```{r,echo=F}
+education = rio::import("cv.xlsx", sheet = "Education")
+eductags = htmltools::tagList()
+
+for (i in 1:nrow(education)) {
+  edu = education[i,]
+  eductags[[i]] <- htmltools::tags$li(
+    htmltools::tagList(
+      htmltools::tags$span(paste0("(",edu$Year,") ")),
+      htmltools::tags$strong(edu$Program), 
+      htmltools::tags$span(paste0(" - ", edu$Institution)),
+      htmltools::tags$span(paste0(ifelse(!is.na(edu$Extra),paste0("", edu$Extra),"")))
+    )
+  )
+}
+htmltools::tags$ul(
+eductags
+)
+```
+
+
+
+ 
+## Work Experience
+
+
+```{r,echo=F}
+experience = rio::import("cv.xlsx", sheet = "Experience")
+exptags = htmltools::tagList()
+
+for (i in 1:nrow(experience)) {
+  exp = experience[i,]
+  exptags[[i]] <- htmltools::tags$li(
+    htmltools::tagList(
+      htmltools::tags$span(paste0("(",exp$Year,") ")),
+      htmltools::tags$strong(ifelse(i==1,htmltools::tagList(htmltools::tags$u(exp$Position)),exp$Position)), 
+      htmltools::tags$span(paste0(" - ", exp$Institution)) 
+    )
+  )
+}
+htmltools::tags$ul(
+exptags
+)
+```
+
+## Teaching
+
+```{r,echo=F}
+teaching = rio::import("cv.xlsx", sheet = "Teaching")
+teatags = htmltools::tagList()
+
+for (i in 1:nrow(teaching)) {
+  tea = teaching[i,]
+  teatags[[i]] <- htmltools::tags$li(
+    htmltools::tagList(
+      htmltools::tags$span(paste0("(",tea$Year,") ")),
+      htmltools::tags$strong(tea$Course), 
+      htmltools::tags$span(paste0(" - ", tea$Institution)) 
+    )
+  )
+}
+htmltools::tags$ul(
+teatags
+)
+```
+
+## Supervision
+
+
+```{r,echo=F}
+supervision = rio::import("cv.xlsx", sheet = "Supervision")
+supervisiontags = htmltools::tagList()
+
+for (i in 1:nrow(supervision)) {
+  superv = supervision[i,]
+  supervisiontags[[i]] <- htmltools::tags$li(
+    htmltools::tagList(
+      htmltools::tags$span(superv), 
+    )
+  )
+}
+htmltools::tags$ul(
+supervisiontags
+)
+```
+
+## Research Funding
+
+```{r,echo=F}
+funding = rio::import("cv.xlsx", sheet = "Funding")
+fundingtags = htmltools::tagList()
+
+for (i in 1:nrow(funding)) {
+  fund = funding[i,]
+  fundingtags[[i]] <- htmltools::tags$li(
+    htmltools::tagList(
+      htmltools::tags$span(paste0("(",fund$Year,") ")), 
+      htmltools::tags$strong(fund$By),  htmltools::tags$br(),
+      ifelse(!is.na(fund$Role),htmltools::tagList(list(htmltools::tags$strong("Role:"), htmltools::tags$span(fund$Role),  htmltools::tags$br())),
+      htmltools::tagList()),
+      ifelse(!is.na(fund$Project),
+             htmltools::tagList(list(htmltools::tags$strong("Project name:"), htmltools::tags$span(fund$Project),  htmltools::tags$br())),
+              htmltools::tagList()),
+      ifelse(!is.na(fund$Amount),
+             htmltools::tagList(list(htmltools::tags$strong("Amount:"), htmltools::tags$span(fund$Amount),  htmltools::tags$br())),
+             htmltools::tagList())
+    )
+    )
+}
+htmltools::tags$ul(
+fundingtags
+)
+```
+
+
+
+## Recent reviews / evaluations / industry collaborations
+```{r,echo=F}
+collabs = rio::import("cv.xlsx", sheet = "Recent_collabs")
+collabstags = htmltools::tagList()
+
+for (i in 1:nrow(collabs)) {
+  collab = collabs[i,]
+  collabstags[[i]] <- htmltools::tags$li(htmltools::tagList(
+   htmltools::tags$span( paste0("(",collab$Year,") ")),
+   htmltools::tags$span(  collab$Description)
+  ))
+}
+
+htmltools::tags$ul(
+  collabstags
+)
+```
+
+## Research Visits
+```{r,echo=F}
+visits = rio::import("cv.xlsx", sheet = "Research_visits")
+visitstags = htmltools::tagList()
+
+for (i in 1:nrow(visits)) {
+  visit = visits[i,]
+  visitstags[[i]] <- htmltools::tags$li(htmltools::tagList(
+   htmltools::tags$span( paste0("(",visit$Year,") ")),
+   htmltools::tags$strong(  visit$Institution), 
+   htmltools::tags$span( paste0(" - ", visit$Country))
+  ))
+}
+htmltools::tags$ul(
+visitstags
+)
+```
+
+## Awards
+
+```{r,echo=F}
+awards = rio::import("cv.xlsx", sheet = "Awards")
+awardstags = htmltools::tagList()
+
+for (i in 1:nrow(awards)) {
+  awa = awards[i,]
+  awardstags[[i]] <- htmltools::tags$li(
+    paste0("(",awa$Year,") ",awa$Description)
+  )
+}
+htmltools::tags$ul(
+awardstags
+)
+```
+
+## Key academic merits and roles
+
+```{r,echo=F}
+editorial = rio::import("cv.xlsx", sheet = "Editorial_work")
+editorialtags = htmltools::tagList()
+
+for (i in 1:nrow(editorial)) {
+  edi = editorial[i,]
+  editorialtags[[i]] <- htmltools::tags$li(htmltools::tagList(
+   htmltools::tags$span( paste0("(",edi$Year,") ")),
+   htmltools::tags$strong( edi$Position),
+   htmltools::tags$span( paste0( " - ", edi$Where))
+  ))
+}
+htmltools::tags$ul(
+editorialtags
+)
+```
+
+
+
+## Peer review
+Reviewed articles for many international scientific publications such as 
+```{r,echo=F}
+peer = rio::import("cv.xlsx", sheet = "Peer")$Publication
+peertags = htmltools::tagList()
+
+for (i in 1:length(peer)) {
+  pe = peer[i]
+  peertags[[i]] <- htmltools::HTML(paste0("<span style='margin-right: 2px;' class='badge rounded-pill bg-light'>",peer[i],"</span>"))
+}
+
+htmltools::tags$ul(
+  peertags
+)
+```
+## Projects
+
+Has successfully participated in or managed the following projects that included planning, documentation, collaboration with different departments and colleagues and stakeholders for optimum operation.
+
+
+```{r,echo=F}
+projects = rio::import("cv.xlsx", sheet = "Projects")
+projtags = htmltools::tagList()
+for (i in 1:nrow(projects)) {
+  proj = projects[i,]
+  if (!is.na(proj$Year) & !is.na(proj$Name) & ("Unknown" != (proj$Name))){
+    projtags[[i]] <- htmltools::tags$li(
+      htmltools::tagList(
+        htmltools::tags$span(paste0("(",proj$Year,") ")),
+        htmltools::tags$strong(proj$Name), 
+        htmltools::tags$span(paste0(" -  ", proj$Institution)), 
+        htmltools::tags$br(),
+        htmltools::tags$small(ifelse(!is.na(proj$Description),proj$Description,""),
+        htmltools::tags$br(),htmltools::tags$br()
+        )
+      )
+    )
+  }
+}
+htmltools::tags$ul(
+projtags
+)
+```
+
+ 
+ 
+ 
+
+ 
+ 
+
