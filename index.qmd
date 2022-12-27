@@ -23,17 +23,7 @@ for (i in 1:length(Welcome)) {
 
 Welcome_tags
 ```
-
-
-:::
-
-<div class="column-margin column-container">
-![](headshot.jpg){.rounded}
-</div>
-:::
-
-
-::: {.column-page-inset .text-center}
+<div class="text-center">
 ```{=html}
 <a class="btn btn-sm btn-info", href="https://twitter.com/mohsaqr" target="_blank" rel="noopener noreferrer">
     <i class="bi bi-twitter" role='img' aria-label='Twitter'></i> Twitter
@@ -55,6 +45,16 @@ Welcome_tags
      <i class="ai ai-orcid" role='img' aria-label='Orcid'></i> ORCID
 </a>
 ```
+</div>
+:::
+
+<div class="column-margin column-container">
+![](headshot.jpg){.rounded}
+</div>
+:::
+
+
+::: {.column-page-inset .text-center}
 :::
 
 

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.280">
+<meta name="generator" content="quarto-1.1.189">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -80,7 +80,6 @@ gtag('config', 'G-251HR7GW52', { 'anonymize_ip': true});
 <meta name="twitter:description" content="View all">
 <meta name="twitter:image" content="https://loxavia.github.io/social-card.jpg">
 <meta name="twitter:creator" content="@mohsaqr">
-<meta name="twitter:site" content="@mohsaqr">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -101,20 +100,16 @@ gtag('config', 'G-251HR7GW52', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link active" href="./index.html" aria-current="page">Home</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./interests.html">
- <span class="menu-text">Interests</span></a>
+    <a class="nav-link" href="./interests.html">Interests</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./cv.html">
- <span class="menu-text">Curriculum Vitae</span></a>
+    <a class="nav-link" href="./cv.html">Curriculum Vitae</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./publications.html">
- <span class="menu-text">Publications</span></a>
+    <a class="nav-link" href="./publications.html">Publications</a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
@@ -141,7 +136,6 @@ gtag('config', 'G-251HR7GW52', { 'anonymize_ip': true});
 <div class="quarto-title-meta">
 
     
-  
     
   </div>
   
@@ -157,12 +151,7 @@ gtag('config', 'G-251HR7GW52', { 'anonymize_ip': true});
 <p>Mohammed Saqr is an Academy of Finland researcher who leads the lab of learning analytics at UEF School of Computing which was, according to Scopus, Europe’s most productive learning analytics lab in 2021. Mohammed had a PhD in learning analytics from Stockholm University, Sweden. Before joining UEF in Finland, Mohammed had a post-doc at University of Paris. Mohammed’s research is interdisciplinary including learning analytics and big data, network science, science of science and medicine. Mohammed’ PhD was awarded the best thesis, he got several international research awards (e.g., best papers) and obtained the University of Michigan Office of Academic Innovation fellowship. Mohammed obtained funding from prestigious institutions: Swedish Research Council (as Co-PI) and Academy of Finland (as PI) for Idiographic learning analytics as well as several other grants. Mohammed is an academic editor in four prestigious academic journals, organised and contributed to several international conferences and presented several invited keynotes. Mohammed’s current collaboration network includes Finland, Spain, Sweden, Germany, Australia, France, Switzerland, UK, and USA.</p>
 </div>
 </div>
-</div>
-<div class="column-margin column-container">
-<p><img src="headshot.jpg" class="rounded img-fluid"></p>
-</div>
-</div>
-<div class="column-page-inset text-center">
+<div class="text-center">
 <a class="btn btn-sm btn-info" ,="" href="https://twitter.com/mohsaqr" target="_blank" rel="noopener noreferrer">
     <i class="bi bi-twitter" role="img" aria-label="Twitter"></i> Twitter
 </a>
@@ -182,6 +171,14 @@ gtag('config', 'G-251HR7GW52', { 'anonymize_ip': true});
   <a class="btn btn-sm btn-danger" ,="" href="https://orcid.org/0000-0001-5881-3109" target="_blank" rel="noopener noreferrer">
      <i class="ai ai-orcid" role="img" aria-label="Orcid"></i> ORCID
 </a>
+</div>
+</div>
+<div class="column-margin column-container">
+<p><img src="headshot.jpg" class="rounded img-fluid"></p>
+</div>
+</div>
+<div class="column-page-inset text-center">
+
 </div>
 </div>
 </div>
@@ -275,24 +272,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
     setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -328,42 +308,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
       });
-    }
+      return popup.innerHTML;
+    });
   }
 });
 </script>

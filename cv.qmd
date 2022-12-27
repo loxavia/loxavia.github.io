@@ -210,7 +210,7 @@ for (i in 1:length(peer)) {
   peertags[[i]] <- htmltools::HTML(paste0("<span style='margin-right: 2px;' class='badge rounded-pill bg-light'>",peer[i],"</span>"))
 }
 
-htmltools::tags$ul(
+htmltools::tags$div(
   peertags
 )
 ```
