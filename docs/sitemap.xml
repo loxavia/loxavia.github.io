@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://loxavia.github.io/cv.html</loc>
+    <lastmod>2023-01-19T20:10:13.057Z</lastmod>
+  </url>
+  <url>
     <loc>https://loxavia.github.io/index.html</loc>
-    <lastmod>2023-01-18T17:54:03.647Z</lastmod>
-  </url>
-  <url>
-    <loc>https://loxavia.github.io/blog.html</loc>
-    <lastmod>2023-01-18T17:54:04.643Z</lastmod>
-  </url>
-  <url>
-    <loc>https://loxavia.github.io/posts/first-post/index.html</loc>
-    <lastmod>2023-01-18T17:54:05.007Z</lastmod>
+    <lastmod>2023-01-19T20:10:15.893Z</lastmod>
   </url>
   <url>
     <loc>https://loxavia.github.io/publications.html</loc>
-    <lastmod>2023-01-18T17:54:08.779Z</lastmod>
+    <lastmod>2023-01-19T20:10:19.277Z</lastmod>
   </url>
   <url>
     <loc>https://loxavia.github.io/interests.html</loc>
-    <lastmod>2023-01-18T17:54:10.691Z</lastmod>
+    <lastmod>2023-01-19T20:10:21.085Z</lastmod>
   </url>
   <url>
-    <loc>https://loxavia.github.io/cv.html</loc>
-    <lastmod>2023-01-18T17:54:13.799Z</lastmod>
+    <loc>https://loxavia.github.io/blog.html</loc>
+    <lastmod>2023-01-19T20:10:21.513Z</lastmod>
+  </url>
+  <url>
+    <loc>https://loxavia.github.io/posts/first-post/index.html</loc>
+    <lastmod>2023-01-19T20:10:21.861Z</lastmod>
   </url>
 </urlset>
