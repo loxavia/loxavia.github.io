@@ -51,7 +51,7 @@ for (p in 1:length(pub_types)) {
       }
     }
     titletag <- htmltools::tags$h3(paste0(years[y]))
-    if(pub_types[p]%in%c("Editorial","Other publication")) {
+    if(pub_types[p]%in%c("Editorial","Other publication","Thesis")) {
       titletag<-htmltools::tags$span("")
     }
     year_tags[[y]] <- htmltools::tagList(
@@ -64,7 +64,7 @@ for (p in 1:length(pub_types)) {
   }
   
   pub_tags[[p]] <- htmltools::tagList(
-      htmltools::tags$h2(paste0(pub_types[p],"s")),
+      htmltools::tags$h2(ifelse(pub_types[p] == "Thesis", "Thesis",paste0(pub_types[p],"s"))),
         year_tags
     )
 }
