@@ -54,46 +54,6 @@ exptags
 )
 ```
 
-## Teaching
-
-```{r,echo=F}
-teaching = rio::import("cv.xlsx", sheet = "Teaching")
-teatags = htmltools::tagList()
-
-for (i in 1:nrow(teaching)) {
-  tea = teaching[i,]
-  teatags[[i]] <- htmltools::tags$li(
-    htmltools::tagList(
-      htmltools::tags$span(paste0("(",tea$Year,") ")),
-      htmltools::tags$strong(tea$Course), 
-      htmltools::tags$span(paste0(" - ", tea$Institution)) 
-    )
-  )
-}
-htmltools::tags$ul(
-teatags
-)
-```
-
-## Supervision
-
-
-```{r,echo=F}
-supervision = rio::import("cv.xlsx", sheet = "Supervision")
-supervisiontags = htmltools::tagList()
-
-for (i in 1:nrow(supervision)) {
-  superv = supervision[i,]
-  supervisiontags[[i]] <- htmltools::tags$li(
-    htmltools::tagList(
-      htmltools::tags$span(superv), 
-    )
-  )
-}
-htmltools::tags$ul(
-supervisiontags
-)
-```
 
 ## Research Funding
 
@@ -143,23 +103,6 @@ htmltools::tags$ul(
 )
 ```
 
-## Research Visits
-```{r,echo=F}
-visits = rio::import("cv.xlsx", sheet = "Research_visits")
-visitstags = htmltools::tagList()
-
-for (i in 1:nrow(visits)) {
-  visit = visits[i,]
-  visitstags[[i]] <- htmltools::tags$li(htmltools::tagList(
-   htmltools::tags$span( paste0("(",visit$Year,") ")),
-   htmltools::tags$strong(  visit$Institution), 
-   htmltools::tags$span( paste0(" - ", visit$Country))
-  ))
-}
-htmltools::tags$ul(
-visitstags
-)
-```
 
 ## Awards
 
