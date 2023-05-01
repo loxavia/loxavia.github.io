@@ -112,5 +112,5 @@ selected_publ
 <a href="publications.html" class="btn btn-info btn-sm">View all</a>
 
 ## Contact me 
-<p>If you have a research idea, want to collabprate, thinking of a funding proposal, a PhD or a master supervision. You are welcome to connet with me, send me at e-mail at <a href="mailto:mohammed.saqr@uef.fi">mohammed.saqr@uef.fi</a>.</p>
+<p>If you have a research idea, want to collaborate, thinking of a funding proposal, a PhD or a master supervision. You are welcome to connet with me, send me at e-mail at <a href="mailto:mohammed.saqr@uef.fi">mohammed.saqr@uef.fi</a>.</p>
 
