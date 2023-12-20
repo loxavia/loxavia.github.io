@@ -35,7 +35,7 @@ htmltools::tags$p(output)
 
 
 ```{r, echo= F, message = F, warning=F}
-pub_types = unique(Publications$`Document Type`)
+pub_types = c("Journal Article", "Conference Paper","Book Chapter",  "Editorial", "Other publication", "Thesis" )
 pub_tags <- htmltools::tagList()
 for (p in 1:length(pub_types)) {
   year_tags = htmltools::tagList()
@@ -58,7 +58,7 @@ for (p in 1:length(pub_types)) {
       }
     }
     titletag <- htmltools::tags$h3(paste0(years[y]))
-    if(pub_types[p]%in%c("Editorial","Other publication","Thesis")) {
+    if(pub_types[p]%in%c("Other publication","Thesis")) {
       titletag<-htmltools::tags$span("")
     }
     year_tags[[y]] <- htmltools::tagList(
