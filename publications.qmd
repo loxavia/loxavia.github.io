@@ -50,7 +50,7 @@ for (p in 1:length(pub_types)) {
     
     dy <- ds %>% filter(Year == years[y])
     if (years[y] == "Before 2017") {
-      dy <- ds %>% filter(Year <= 2017)
+      dy <- ds %>% filter(Year < 2017)
     }
     for (i in 1:nrow(dy)) {
       if (!is.na(dy[i,]$Ref)){
@@ -70,7 +70,7 @@ for (p in 1:length(pub_types)) {
     )
   }
   pub_tags[[p]] <- htmltools::tagList(
-      htmltools::tags$h2(ifelse(pub_types[p] == "Thesis", "Thesis",paste0(pub_types[p],"s"))),
+      htmltools::tags$h2(ifelse(pub_types[p] == "Thesis", "Thesis", paste0(pub_types[p],"s"))),
         year_tags
     )
 }
