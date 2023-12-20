@@ -1,9 +1,9 @@
 ---
-title: "Publications"
-toc: true
+title: "Untitled"
+format: docx
+
 ---
-
-
+ 
 ```{r, include=F,message=F, warning=F}
 
 library(dplyr)
@@ -12,27 +12,39 @@ Publications = rio::import("cv.xlsx", sheet = "Publications") %>% arrange(desc(Y
 
 (Publications) %>% ungroup %>% dplyr::mutate(seq = seq_along(Title)) -> Publications
 Publications %>%  rowwise %>% 
-  dplyr::mutate(Ref = generateAPARef(Publications[seq,])) -> Publications
+  dplyr::mutate(Ref = generateAPARef(Publications[seq,],F)) -> Publications
 ```
 
+ 
+```{r, echo= F, message = T, warning=F, results = 'asis'}
+pub_types = unique(Publications$`Document Type`)
+pub_tags <- htmltools::tagList()
+  year_tags = htmltools::tagList()
+  ds <- Publications 
+  years <- unique(ds$Year)
+  for (y in 1:length(years)){
+    research_tags = htmltools::tagList()
 
-```{r, echo=F, message=F, warning=F}
-outcomes <- Publications %>%  janitor::tabyl(`Document Type`) %>% data.frame %>% pull(n,`Document.Type`) 
-output = paste0("My ", nrow(Publications), " research publications include ")
-types_pub = unique(Publications$`Document Type`)
-for (i in 1:length(types_pub)) {
-  pubb <- rev(types_pub[i])
-  numberr <- outcomes[[pubb]]
-  lastt <- i==length(types_pub)
-  output = paste0( output, ifelse(lastt, "and ",""), 
-                   numberr, " ",  stringr::str_to_lower(pubb), 
-                   ifelse(numberr > 1,"s",""),
-                   ifelse( lastt,".",", "))
-}
-htmltools::tags$p(output)
+    dy <- ds %>% filter(Year == years[y])
+    for (i in 1:nrow(dy)) {
+      if (!is.na(dy[i,]$Ref)){
+        research_tags[[i]] <- htmltools::HTML(dy[i,]$Ref)
+      }
+    }
+    titletag <- htmltools::tags$h3(paste0(years[y]))
+    
+    year_tags[[y]] <- htmltools::tagList(
+      titletag,
+      htmltools::tags$ul(
+        research_tags,
+        style="padding-left: 3rem"
+      )
+    )
+  }
+  
+  year_tags
+
 ```
-
-
 
 ```{r, echo= F, message = F, warning=F}
 pub_types = unique(Publications$`Document Type`)
@@ -77,7 +89,4 @@ for (p in 1:length(pub_types)) {
 (pub_tags)
 ```
  
-
-
-
 
