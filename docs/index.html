@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.4.552">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -166,9 +166,13 @@ gtag('config', 'G-J5QY9QMC46', { 'anonymize_ip': true});
 <div class="">
 <div class="cell">
 <div class="cell-output-display">
-<p>Dr. Mohammed Saqr is an Associate Professor of Computer Science at the School of Computing, University of Eastern Finland. He leads UEF’s Learning Analytics Unit, which has emerged as Europe’s most productive learning analytics lab, as recognized by Scopus and Web of Science over the past five years (2019-2023).Mohammed Saqr’s academic journey began with a PhD in Learning Analytics from Stockholm University, Sweden, followed by a postdoctoral position at Université Paris Cité, France. Later, he earned the title of Docent in Learning Analytics from the University of Oulu, Finland.
-Mohammed Saqr’s scholarly work is diverse, interdisciplinary, and prolific. It spans more than 150 peer-reviewed interdisciplinary, methodological, and empirical studies, two books, and more than a dozen editorials. His work covers areas such as learning analytics, artificial intelligence, big data, network science, the science of science, and medicine. Mohammed Saqr has received several international recognitions. His PhD thesis was awarded the best thesis, and he has also received several international research awards (e.g., best papers). He obtained the University of Michigan Office of Academic Innovation fellowship. In 2023, the Society of Learning Analytics Research (SOLAR) awarded Mohammed Saqr the Europe’s Emerging Scholar Award for “Noteworthy research leading to significant knowledge and understanding of learning analytics and the impact of research on learning analytics application, adoption, and professional development in Europe”. Mohammed has secured funding from esteemed institutions, including the Academy of Finland (as Principal Investigator) and the Swedish Research Council (as Co-Principal Investigator). Additionally, he serves on the editorial boards of prominent journals such as Transactions of Learning Technologies, British Journal of Education Technologies, and PLOS ONE
-Mohammed Saqr actively contributes to international conferences, sharing insights through invited keynote addresses as well as academic engagement. His extensive collaboration network spans over a hundred researchers. Besides, Mohammed Saqr has offered consultations to governmental organizations and companies and contributed to the evaluation of the World Academy of Sciences (a UNESCO organization).</p>
+<p>Dr. Mohammed Saqr is an Associate Professor of Computer Science at the School of Computing, University of Eastern Finland. He leads UEF’s Learning Analytics Unit, which has emerged as Europe’s most productive learning analytics lab, as recognized by Scopus and Web of Science over the past five years (2019-2023).
+Dr. Saqr’s academic journey began with a PhD in Learning Analytics from Stockholm University, Sweden, followed by a postdoctoral position at Université Paris Cité, France. Later, he earned the title of Docent in Learning Analytics from the University of Oulu, Finland.
+His scholarly work is diverse, interdisciplinary, and prolific. It spans more than 150 peer-reviewed interdisciplinary, methodological, and empirical studies, two books, and more than a dozen editorials. His research covers areas such as learning analytics, artificial intelligence, big data, network science, the science of science, and medicine.
+Dr. Saqr has received several international recognitions. His PhD thesis was awarded the best thesis, and he has also received several international research awards (e.g., best paper at LAK, ICCE, SITE, TEEM). He obtained the University of Michigan Office of Academic Innovation fellowship. In 2023, the Society of Learning Analytics Research (SOLAR) awarded Dr. Saqr the Europe’s Emerging Scholar Award for “Noteworthy research leading to significant knowledge and understanding of learning analytics and the impact of research on learning analytics application, adoption, and professional development in Europe”.
+Dr. Saqr has secured funding from esteemed institutions, including the Academy of Finland (as Principal Investigator) and the Swedish Research Council (as Co-Principal Investigator). Additionally, he serves on the editorial boards of prominent journals such as Transactions of Learning Technologies, British Journal of Education Technologies, and PLOS ONE.
+Mohammed Saqr actively contributes to international conferences, sharing insights through invited keynote addresses as well as academic engagement. His extensive collaboration network spans over a hundred researchers. Mohammed Saqr has offered consultations to governmental organizations and companies and contributed to the evaluation of the World Academy of Sciences (a UNESCO organization).
+</p>
 </div>
 </div>
 <div class="text-center">
@@ -330,6 +334,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/loxavia\.github\.io");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -364,7 +386,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
