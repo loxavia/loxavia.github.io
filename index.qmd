@@ -11,6 +11,36 @@ resources:
 <div>
 ::: {.column-page-inset}
 ::: {.column-page-inset-left}
+
+
+```{r, include=F,message=F, warning=F}
+
+library(dplyr)
+source("apa.R")
+Publications = rio::import("cv.xlsx", sheet = "Publications") %>% arrange(desc(Year))
+
+(Publications) %>% ungroup %>% dplyr::mutate(seq = seq_along(Title)) -> Publications
+Publications %>%  rowwise %>% 
+  dplyr::mutate(Ref = generateAPARef(Publications[seq,])) -> Publications
+```
+
+
+```{r, echo=F, message=F, warning=F}
+outcomes <- Publications %>%  janitor::tabyl(`Document Type`) %>% data.frame %>% pull(n,`Document.Type`) 
+output = paste0("His ", nrow(Publications), " research <a href='publications.html'>publications</a> include ")
+types_pub = unique(Publications$`Document Type`)
+for (i in 1:length(types_pub)) {
+  pubb <- rev(types_pub[i])
+  numberr <- outcomes[[pubb]]
+  lastt <- i==length(types_pub)
+  output = paste0( output, ifelse(lastt, "and ",""), 
+                   numberr, " ",  stringr::str_to_lower(pubb), 
+                   ifelse(numberr > 1,"s",""),
+                   ifelse( lastt,".",", "))
+}
+```
+
+
 ```{r,echo=F}
 Welcome = rio::import("cv.xlsx", sheet = "Intro")$Welcome
 
@@ -18,7 +48,7 @@ Welcome_tags = htmltools::tagList()
 
 for (i in 1:length(Welcome)) {
   if (!is.na(Welcome[i])){
-    Welcome_tags[[i]] <- htmltools::tags$p(Welcome[i])
+    Welcome_tags[[i]] <- htmltools::HTML(paste0("<p>",Welcome[i],output,"</p>"))
   }
 }
 
