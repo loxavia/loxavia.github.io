@@ -10,7 +10,7 @@
 <atom:link href="https://loxavia.github.io/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Personal website of Mohammed Saqr</description>
 <generator>quarto-1.6.40</generator>
-<lastBuildDate>Sun, 11 Dec 2022 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sat, 10 Dec 2022 22:00:00 GMT</lastBuildDate>
 <item>
   <title>First post</title>
   <dc:creator>Sonsoles López Pernas</dc:creator>
@@ -27,7 +27,7 @@
  ]]></description>
   <category>website</category>
   <guid>https://loxavia.github.io/posts/first-post/</guid>
-  <pubDate>Sun, 11 Dec 2022 00:00:00 GMT</pubDate>
+  <pubDate>Sat, 10 Dec 2022 22:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

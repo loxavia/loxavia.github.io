@@ -7,9 +7,7 @@ image: /social-card.jpg
 resources:
     - "social-card.jpg"
 ---
-<div>
-<div>
-::: {.column-page-inset}
+
 ::: {.column-page-inset-left}
 
 
@@ -77,23 +75,19 @@ Welcome_tags
 </a>
 ```
 </div>
+ 
 :::
-
-<div class="column-margin column-container">
+::: {.column-margin}
 ![](headshot.jpg){.rounded}
-</div>
 :::
-
-
-::: {.column-page-inset .text-center}
-:::
-
 
  
 
+::: {.column-page-inset }
  
-</div>
-</div>
+
+ 
+ 
 
 ## Research Interests
 
@@ -143,4 +137,4 @@ selected_publ
 
 ## Contact me 
 <p>If you have a research idea, want to collaborate, thinking of a funding proposal, a PhD or a master supervision. You are welcome to connet with me, send me at e-mail at <a href="mailto:mohammed.saqr@uef.fi">mohammed.saqr@uef.fi</a>.</p>
-
+:::
